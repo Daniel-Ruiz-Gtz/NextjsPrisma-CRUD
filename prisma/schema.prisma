@@ -12,7 +12,7 @@ datasource db {
 
 model Note {
   id Int @id @default(autoincrement())
-  tittle String
+  title String
   content String?
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
