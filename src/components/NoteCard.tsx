@@ -2,7 +2,7 @@ import { Note } from "@prisma/client";
 import { useNotes } from "@/context/NoteContext";
 
 function NoteCard({ note }: { note: Note }) {
-  const { deleteNote } = useNotes();
+  const { deleteNote, setSelectedNote } = useNotes();
   return (
     <div
       key={note.id}
@@ -21,7 +21,13 @@ function NoteCard({ note }: { note: Note }) {
         >
           Delete
         </button>
-        <button>Edit</button>
+        <button
+          onClick={async () => {
+            setSelectedNote(note);
+          }}
+        >
+          Edit
+        </button>
       </div>
     </div>
   );
